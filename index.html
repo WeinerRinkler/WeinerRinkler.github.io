@@ -1,8 +1,7 @@
 <html>
 <head>
 <script>
-//var streamerID = "DrachenLord_Offiziell";
-var streamerID = "Enyadres";
+var streamerID = "DrachenLord_Offiziell";
 </script>
 <style>
 html, body {
@@ -228,7 +227,7 @@ input#connect {
 }
 
 </style>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
 <script type="text/javascript" src="https://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
 </head>
@@ -259,7 +258,6 @@ ws://ws-younow.pusher.com/app/d5b7447226fc2cd78dbb?protocol=7&client=js&version=
 </div>
 </div>
 <script>
-//var streamerID = "DrachenLord_Offiziell";
 
 var YouNowPlayer = function()
 {
@@ -375,7 +373,7 @@ YouNowPlayer.prototype.addChatMessage = function(message)
 		wasBottom = true;
 	if ($('#messages').children().length > this.config.maxMessages - 1)
 		$('#messages').children()[0].remove();
-	$('#messages').append('<li><img src="https://cdn2.younow.com/php/api/channel/getImage/?channelId='+message.userId+'" height="30" /><span><strong><a href="https://www.younow.com/'+message.profileUrlString+'">'+message.name+' ('+message.userLevel+')</a>: </strong>'+message.comment+'</span></li>');
+	$('#messages').append('<li><img src="http://cdn2.younow.com/php/api/channel/getImage/?channelId='+message.userId+'" height="30" /><span><strong><a href="https://www.younow.com/'+message.profileUrlString+'">'+message.name+' ('+message.userLevel+')</a>: </strong>'+message.comment+'</span></li>');
 	if (wasBottom)
 	{
 		$("#messages").animate({ scrollTop: $("#messages")[0].scrollHeight}, 200)
@@ -393,7 +391,7 @@ YouNowPlayer.prototype.updateInfo = function()
 		socialMedia += "<a href=\"https://www.twitter.com/"+this.streamerData.user.twitterHandle+"\"><img src=\""+this.config.icons.twitter+"\"></a>";
 	if (this.streamerData.user["youTubeUserName"] != null)
 		socialMedia += "<a href=\"https://www.youtube.com/"+this.streamerData.user.youTubeUserName+"\"><img src=\""+this.config.icons.youtube+"\"></a>";
-	$('#streamerInfo').html("<img style=\"float:left;\" height=\"28\" src=\"https://cdn2.younow.com/php/api/channel/getImage/?channelId="+this.streamerData['userId']+"\" />"+this.streamerData.country + " | <strong>"+this.streamerData.username+"</strong>  ("+this.streamerData.user.userLevel+" | "+(Math.round((this.streamerData.userlevel%1)*100))+"% "+this.language["to"]+" "+(this.streamerData.user.userLevel+1)+") "+this.language["in"]+" #"+this.streamerData.tags[0]+"<br /><div style=\"float:left;\">"+socialMedia+"</div><div style=\"float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.coins+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.coins+"</span></div> <div style=\"margin-left:5px; float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.bars+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.barsEarned+"</span></div> ");
+	$('#streamerInfo').html("<img style=\"float:left;\" height=\"28\" src=\"http://cdn2.younow.com/php/api/channel/getImage/?channelId="+this.streamerData['userId']+"\" />"+this.streamerData.country + " | <strong>"+this.streamerData.username+"</strong>  ("+this.streamerData.user.userLevel+" | "+(Math.round((this.streamerData.userlevel%1)*100))+"% "+this.language["to"]+" "+(this.streamerData.user.userLevel+1)+") "+this.language["in"]+" #"+this.streamerData.tags[0]+"<br /><div style=\"float:left;\">"+socialMedia+"</div><div style=\"float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.coins+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.coins+"</span></div> <div style=\"margin-left:5px; float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.bars+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.barsEarned+"</span></div> ");
 	$('#top').html(this.streamerData.viewers + " "+this.language["viewers"]);
 	var hours = Math.floor(this.duration / (60 * 60));
 	var minutes = Math.floor(this.duration / (60)) % 60;
@@ -426,18 +424,18 @@ YouNowPlayer.prototype.isConnected = false;
 YouNowPlayer.prototype.config = {
 	maxMessages: 200,
 	icons: {
-		"disconnected": "disconnect.png",
-		"connected": "connect.png",
-		"youtube": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Youtube-alt-2-Metro-icon.png",
-		"facebook": "https://icons.iconarchive.com/icons/danleech/simple/16/facebook-icon.png",
-		"twitter": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Twitter-alt-2-Metro-icon.png",
-		"googleplus": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Google-plus-alt-Metro-icon.png",
-		"bars": "https://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/icon_bar_sm.png",
-		"coins": "https://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/menu_user_coins1.png",
-		"views": "https://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/24/eye-icon.png",
-		"time": "https://icons.iconarchive.com/icons/icons8/windows-8/24/Very-Basic-Clock-icon.png",
-		"likes": "https://icons.iconarchive.com/icons/icons8/windows-8/24/Hands-Thumbs-Up-icon.png",
-		"shares": "https://icons.iconarchive.com/icons/icons8/ios7/24/Very-Basic-Electric-Megaphone-Filled-icon.png",
+		"disconnected": "icons/disconnect.png",
+		"connected": "icons/connect.png",
+		"youtube": "icons/yt.png",
+		"facebook": "icons/facebook.png",
+		"twitter": "icons/twitter.png",
+		"googleplus": "icons/gplus.png",
+		"bars": "icons/icon_bar_sm.png",
+		"coins": "icons/menu_user_coins1.png",
+		"views": "icons/eye-icon.png",
+		"time": "icons/clock.png",
+		"likes": "icons/thumbs_up.png",
+		"shares": "icons/megaphone.png",
 	},
 	language: {
 		"de_DE": {
