@@ -227,9 +227,9 @@ input#connect {
 }
 
 </style>
-<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script src="http://js.pusher.com/2.2/pusher.min.js"></script>
-<script type="text/javascript" src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+<script type="text/javascript" src="https://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
 </head>
 <body>
 <script>
@@ -276,7 +276,7 @@ YouNowPlayer.prototype.connect = function(streamerID)
 	$('#connectionInfo').html('<img src="'+this.config["icons"]["disconnected"]+'" />'+this.language["connecting"]);
     var self = this;
 	$.ajax({
-		url: 'http://www.younow.com/php/api/broadcast/info/curId=0/user='+streamerID, 
+		url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user='+streamerID, 
 		jsonp: "callback",
 		dataType: "jsonp",
 		success: function(json, b, c)
@@ -325,7 +325,7 @@ YouNowPlayer.prototype.connected = function(streamerData)
 	this.isConnected = true;
 	this.tick();
 	
-	flowplayer("streamView", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
+	flowplayer("streamView", "https://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
         clip: {
             url: this.streamerData.media.stream,
 			live: true,
@@ -374,7 +374,7 @@ YouNowPlayer.prototype.addChatMessage = function(message)
 		wasBottom = true;
 	if ($('#messages').children().length > this.config.maxMessages - 1)
 		$('#messages').children()[0].remove();
-	$('#messages').append('<li><img src="http://cdn2.younow.com/php/api/channel/getImage/?channelId='+message.userId+'" height="30" /><span><strong><a href="http://www.younow.com/'+message.profileUrlString+'">'+message.name+' ('+message.userLevel+')</a>: </strong>'+message.comment+'</span></li>');
+	$('#messages').append('<li><img src="https://cdn2.younow.com/php/api/channel/getImage/?channelId='+message.userId+'" height="30" /><span><strong><a href="https://www.younow.com/'+message.profileUrlString+'">'+message.name+' ('+message.userLevel+')</a>: </strong>'+message.comment+'</span></li>');
 	if (wasBottom)
 	{
 		$("#messages").animate({ scrollTop: $("#messages")[0].scrollHeight}, 200)
@@ -385,14 +385,14 @@ YouNowPlayer.prototype.updateInfo = function()
 {
 	var socialMedia = "";
 	if (this.streamerData.user["facebookId"] != null)
-		socialMedia += "<a href=\"http://www.facebook.com/"+this.streamerData.user.facebookId+"\"><img src=\""+this.config.icons.facebook+"\"></a>";
+		socialMedia += "<a href=\"https://www.facebook.com/"+this.streamerData.user.facebookId+"\"><img src=\""+this.config.icons.facebook+"\"></a>";
 	if (this.streamerData.user["facebookUrl"] != null)
 		socialMedia += "<a href=\""+this.streamerData.user.facebookUrl+"\"><img src=\""+this.config.icons.facebook+"\"></a>";
 	if (this.streamerData.user["twitterHandle"] != null)
-		socialMedia += "<a href=\"http://www.twitter.com/"+this.streamerData.user.twitterHandle+"\"><img src=\""+this.config.icons.twitter+"\"></a>";
+		socialMedia += "<a href=\"https://www.twitter.com/"+this.streamerData.user.twitterHandle+"\"><img src=\""+this.config.icons.twitter+"\"></a>";
 	if (this.streamerData.user["youTubeUserName"] != null)
-		socialMedia += "<a href=\"http://www.youtube.com/"+this.streamerData.user.youTubeUserName+"\"><img src=\""+this.config.icons.youtube+"\"></a>";
-	$('#streamerInfo').html("<img style=\"float:left;\" height=\"28\" src=\"http://cdn2.younow.com/php/api/channel/getImage/?channelId="+this.streamerData['userId']+"\" />"+this.streamerData.country + " | <strong>"+this.streamerData.username+"</strong>  ("+this.streamerData.user.userLevel+" | "+(Math.round((this.streamerData.userlevel%1)*100))+"% "+this.language["to"]+" "+(this.streamerData.user.userLevel+1)+") "+this.language["in"]+" #"+this.streamerData.tags[0]+"<br /><div style=\"float:left;\">"+socialMedia+"</div><div style=\"float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.coins+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.coins+"</span></div> <div style=\"margin-left:5px; float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.bars+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.barsEarned+"</span></div> ");
+		socialMedia += "<a href=\"https://www.youtube.com/"+this.streamerData.user.youTubeUserName+"\"><img src=\""+this.config.icons.youtube+"\"></a>";
+	$('#streamerInfo').html("<img style=\"float:left;\" height=\"28\" src=\"https://cdn2.younow.com/php/api/channel/getImage/?channelId="+this.streamerData['userId']+"\" />"+this.streamerData.country + " | <strong>"+this.streamerData.username+"</strong>  ("+this.streamerData.user.userLevel+" | "+(Math.round((this.streamerData.userlevel%1)*100))+"% "+this.language["to"]+" "+(this.streamerData.user.userLevel+1)+") "+this.language["in"]+" #"+this.streamerData.tags[0]+"<br /><div style=\"float:left;\">"+socialMedia+"</div><div style=\"float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.coins+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.coins+"</span></div> <div style=\"margin-left:5px; float:left;\"><img style=\"float:left;\" height=\"16\" src=\""+this.config.icons.bars+"\"><span style=\"margin-top:3px;float:left;\">"+this.streamerData.barsEarned+"</span></div> ");
 	$('#top').html(this.streamerData.viewers + " "+this.language["viewers"]);
 	var hours = Math.floor(this.duration / (60 * 60));
 	var minutes = Math.floor(this.duration / (60)) % 60;
@@ -425,18 +425,18 @@ YouNowPlayer.prototype.isConnected = false;
 YouNowPlayer.prototype.config = {
 	maxMessages: 200,
 	icons: {
-		"disconnected": "http://png.findicons.com/files/icons/1581/silk/16/disconnect.png",
-		"connected": "http://png.findicons.com/files/icons/1581/silk/16/connect.png",
-		"youtube": "http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Youtube-alt-2-Metro-icon.png",
-		"facebook": "http://icons.iconarchive.com/icons/danleech/simple/16/facebook-icon.png",
-		"twitter": "http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Twitter-alt-2-Metro-icon.png",
-		"googleplus": "http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Google-plus-alt-Metro-icon.png",
-		"bars": "http://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/icon_bar_sm.png",
-		"coins": "http://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/menu_user_coins1.png",
-		"views": "http://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/24/eye-icon.png",
-		"time": "http://icons.iconarchive.com/icons/icons8/windows-8/24/Very-Basic-Clock-icon.png",
-		"likes": "http://icons.iconarchive.com/icons/icons8/windows-8/24/Hands-Thumbs-Up-icon.png",
-		"shares": "http://icons.iconarchive.com/icons/icons8/ios7/24/Very-Basic-Electric-Megaphone-Filled-icon.png",
+		"disconnected": "https://png.findicons.com/files/icons/1581/silk/16/disconnect.png",
+		"connected": "https://png.findicons.com/files/icons/1581/silk/16/connect.png",
+		"youtube": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Youtube-alt-2-Metro-icon.png",
+		"facebook": "https://icons.iconarchive.com/icons/danleech/simple/16/facebook-icon.png",
+		"twitter": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Twitter-alt-2-Metro-icon.png",
+		"googleplus": "https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/16/Web-Google-plus-alt-Metro-icon.png",
+		"bars": "https://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/icon_bar_sm.png",
+		"coins": "https://cdn2.younow.com/angularjsapp/src/assets/images/icons_v3/menu_user_coins1.png",
+		"views": "https://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/24/eye-icon.png",
+		"time": "https://icons.iconarchive.com/icons/icons8/windows-8/24/Very-Basic-Clock-icon.png",
+		"likes": "https://icons.iconarchive.com/icons/icons8/windows-8/24/Hands-Thumbs-Up-icon.png",
+		"shares": "https://icons.iconarchive.com/icons/icons8/ios7/24/Very-Basic-Electric-Megaphone-Filled-icon.png",
 	},
 	language: {
 		"de_DE": {
