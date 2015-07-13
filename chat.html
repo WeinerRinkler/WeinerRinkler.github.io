@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>DrachenLord Chat</title>
+<link rel="stylesheet" type="text/css" href="http://server3.webkicks.de/chatlord/style_main.css" />
+</head>
+<body>
+<div align="center">
+<font size="+3">Chat Login</font><br><br>
+<form name="formular" method="post" action="http://server3.webkicks.de/chatlord/" target="_self">
+<table align="center">
+ <tr>
+  <td>User:</td>
+  <td><input class="input" type="text" name="user" maxlength="20"></td>
+ </tr>
+ <tr> 
+  <td>Passwort:</td>
+  <td><input class="input" type="password" name="pass" maxlength="15"></td>
+ </tr>
+ <tr> 
+  <td>Gast:</td>
+  <td><input class="input" type="text" name="guest" maxlength="20"></td>
+ </tr>
+ <tr>
+  <td>Problemmodus:</td>
+  <td><p align="center"><input type="checkbox" name="pm" value="1"></p></td>
+ </tr>
+</table>
+<table>
+ <tr> 
+  <td> <br /> 
+  <input name=job type=hidden value="ok">
+  <input name=cid type=hidden value="chatlord">
+  <input class="submit" type="submit" name="login" value="Login">
+ </td>
+ </tr>
+</table>
+<br>
+<table>
+ <tr> 
+  <td><p>Es befinden sich gerade <b><script type="text/javascript" src="http://server3.webkicks.de/chatlord/active/js"></script>
+</b> User im Chat.</p>
+  <p>Noch nicht registriert? <a href="http://server3.webkicks.de/chatlord/register" target="_self"><b>Anmelden</b></a></p></td>
+ </tr>
+</table>
+</form>
+<br>
+<b>Chatter online:</b>
+<table>
+ <tr>
+  <td>
+   <iframe src="http://server3.webkicks.de/cgi-bin/ol.cgi?cid=chatlord"></iframe>
+ </td>
+ </tr>
+</table>
+</div>
+</body>
+</html>
