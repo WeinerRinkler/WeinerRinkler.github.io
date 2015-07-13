@@ -33,6 +33,16 @@ div {
     width:100%;
 }
 
+
+#switcher .right 
+{
+	float: right;
+    margin-top: 5px;
+	margin-right: 50px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .input {
     float: left;
     color: #222;
@@ -84,11 +94,6 @@ input#connect {
 	margin-left: 0px !important;
 }
 
-#outer {
-    height: calc(100% - 38px);
-}
-
-
 #switcher .info, #switcher .last {
     height: 27px;
 	padding-top: 5px;
@@ -124,20 +129,8 @@ input#connect {
 	float: left;
 }
 
-#chat {
-	background: #333;
-	width: 350px;
-	
-    height: 100%;
-	float: right;
-}
-
-#chat #top {
-	height: 20px;
-	width: 100%;
-	color: #eee;
-	background: #444;
-	padding: 3px;
+#outer {
+    height: calc(100% - 38px);
 }
 
 #labelStreamer {
@@ -188,6 +181,22 @@ input#connect {
 #streamBar img {
 	float: left;
 	margin-right: 5px;
+}
+
+#chat {
+	background: #333;
+	width: 350px;
+	
+    height: 100%;
+	float: right;
+}
+
+#chat #top {
+	height: 20px;
+	width: 100%;
+	color: #eee;
+	background: #444;
+	padding: 3px;
 }
 
 #chat ul {
@@ -249,6 +258,7 @@ ws://ws-younow.pusher.com/app/d5b7447226fc2cd78dbb?protocol=7&client=js&version=
 </div>
 <div class="info" id="connectionInfo"></div>
 <div class="last" id="streamerInfo"></div>
+<div class="right"> <a href="chat.html">Haider-Chat</a> </div>
 </div>
 <div id="outer">
 <div id="stream">
