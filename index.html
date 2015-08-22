@@ -27,7 +27,8 @@
     <div class="info" id="connectionInfo"></div>
     <div class="last" id="streamerInfo"></div>
     <div class="center"><input type="button" value="Hide Chat" onclick="toogle_chat()"/></div>
-    <div class="center2"><input id="reconnectCheckbox" type="checkbox" value="Autoreconnect" onchange="switchModus()" checked/></div>
+    <div class="center2"><input type="button" value="Streaminfo" onclick="streaminfo()"/></div>
+    <div class="center3"><input id="reconnectCheckbox" type="checkbox" value="Autoreconnect" onchange="switchModus()" checked/></div>
     <div class="text"> Autoconnect/Autoreconnect</div>
     <div class="right">
         <a target="_blank" href="https://kiwiirc.com/client/irc.freenode.net/drachenlord">Haider-Chat</a>
@@ -327,6 +328,40 @@
         }
     }
     checkIfOnline();
+    
+    function streaminfo () {
+        w = 800
+        h = 200
+        x = screen.availWidth/2-w/2;
+        y = screen.availHeight/2-h/2;
+        var popupWindow = window.open('','','width='+w+',height='+h+',left='+x+',top='+y+',screenX='+x+',screenY='+y);
+        var self = this;
+        streamerID = $('#streamerID').val();
+        $.ajax({
+            url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
+            jsonp: "callback",
+            dataType: "jsonp",
+            success: function (json, b, c) {
+                if (json["errorCode"] > 0) {
+                    //streamerOnline = false;
+                    popupWindow.document.write("Streamer offline");
+                } else {
+                    //streamerOnline = true;
+                    popupWindow.document.write(
+                    "<body bgcolor=\"#666\">" +
+                    "User-ID: " + json.userId + "<br />" +
+                    "Age: " + json.age + "<br />" +
+                    "Max Likes: " + json.maxLikesInBroadcast + "<br />" +
+                    "Fans: " + json.totalFans + "<br />" +
+                    "Partner: " + json.partner + "<br />" +
+                    "Broadcast-Info: " + json.broadcasterInfo + "<br />" +
+                    "Stream-URL: " + "rtmp://" + json.media.host + json.media.app + "/" + json.media.stream + "<br />"
+                    );
+                }
+            }
+        });
+        
+    }
 </script>
 </body>
 </html>
