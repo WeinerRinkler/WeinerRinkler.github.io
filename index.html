@@ -344,18 +344,19 @@
             success: function (json, b, c) {
                 if (json["errorCode"] > 0) {
                     //streamerOnline = false;
-                    popupWindow.document.write("Streamer offline");
+                    popupWindow.document.write("<html><body bgcolor=\"#666\"> Streamer offline</html>");
                 } else {
                     //streamerOnline = true;
                     popupWindow.document.write(
-                    "<body bgcolor=\"#666\">" +
+                    "<html><body bgcolor=\"#666\">" +
                     "User-ID: " + json.userId + "<br />" +
                     "Age: " + json.age + "<br />" +
                     "Max Likes: " + json.maxLikesInBroadcast + "<br />" +
                     "Fans: " + json.totalFans + "<br />" +
                     "Partner: " + json.partner + "<br />" +
                     "Broadcast-Info: " + json.broadcasterInfo + "<br />" +
-                    "Stream-URL: " + "rtmp://" + json.media.host + json.media.app + "/" + json.media.stream + "<br />"
+                    "Stream-URL: " + "rtmp://" + json.media.host + json.media.app + "/" + json.media.stream + "<br />"+
+                    "<html>"
                     );
                 }
             }
