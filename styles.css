@@ -163,6 +163,14 @@ input#connect {
 
 #switcher .center2{
     float:left;
+    width: 80px;
+    margin-top: 6px;
+    margin-left: 20px;
+    text-align-all: center;
+}
+
+#switcher .center3{
+    float:left;
     width: 20px;
     margin-top: 3px;
     margin-left: 20px;
@@ -221,4 +229,3 @@ input#connect {
     width: 30px;
     height: 30px;
 }
-
