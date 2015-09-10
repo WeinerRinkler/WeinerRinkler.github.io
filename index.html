@@ -331,8 +331,8 @@
     checkIfOnline();
     
     function streaminfo () {
-        w = 800
-        h = 200
+        w = 900
+        h = 250
         x = screen.availWidth/2-w/2;
         y = screen.availHeight/2-h/2;
         var popupWindow = window.open('','','width='+w+',height='+h+',left='+x+',top='+y+',screenX='+x+',screenY='+y);
@@ -351,12 +351,13 @@
                     popupWindow.document.write(
                     "<html><body bgcolor=\"#666\">" +
                     "User-ID: " + json.userId + "<br />" +
+                    "Chat-Level: " + json.minChatLevel + "<br />" +
                     "Age: " + json.age + "<br />" +
                     "Max Likes: " + json.maxLikesInBroadcast + "<br />" +
                     "Fans: " + json.totalFans + "<br />" +
                     "Partner: " + json.partner + "<br />" +
-                    "Broadcast-Info: " + json.broadcasterInfo + "<br />" +
-                    "Stream-URL: " + "rtmp://" + json.media.host + json.media.app + "/" + json.media.stream + "<br />"+
+                    "Broadcast-Info: " + "<br />" + json.broadcasterInfo + "<br />" +
+                    "Stream-URL: " + "<br />" + "rtmp://" + json.media.host + json.media.app + "/" + json.media.stream + "<br />" + 
                     "<html>"
                     );
                 }
@@ -364,6 +365,7 @@
         });
         
     }
+
 </script>
 </body>
 </html>
