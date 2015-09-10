@@ -211,6 +211,7 @@
         if (this.isConnected) {
             var d = new Date();
             this.duration = this.streamerData.length + Math.floor((d.getTime() - this.timeStart) / 1000);
+            console.log("Update Info");
             this.updateInfo();
         }
     };
