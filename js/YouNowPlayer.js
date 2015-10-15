@@ -18,7 +18,7 @@ YouNowPlayer.prototype.connect = function (streamerID, mode) {
         dataType: "jsonp",
         success: function (json, b, c) {
             if (json["errorCode"] > 0 && mode == 0) {
-                self.failed("(" + json["errorCode"] + ") " + streamerID + " ist etzala gerad uff Arbeit und ned am screamen. Neu versuchen?");
+                self.failed(streamerID + " ist etzala nicht zuhause! :(", "Positionier dich doch zeitlich einfach so dass du " + streamerID + " sehen kannst, er dich aber nicht - ferstehst du?");
                 streamerOnline = false;
             } else if (json["errorCode"] > 0 && mode == 1) {
                 console.log("Streamer not online");
@@ -149,12 +149,26 @@ YouNowPlayer.prototype.updateInfo = function () {
     else time += "0" + seconds;
     $('#streamBar').html("<div class=\"left\"><div class=\"item\"><img src=\"" + this.config.icons.likes + "\" />" + this.streamerData.likes + "</div><div class=\"item\"><img src=\"" + this.config.icons.shares + "\" />" + this.streamerData.shares + "</div></div></div><div class=\"right\"><div class=\"item\"><img src=\"" + this.config.icons.time + "\" />" + time + "</div><div class=\"item\"><img src=\"" + this.config.icons.views + "\" />" + this.streamerData.viewers + "</div></div>");
 }
-YouNowPlayer.prototype.failed = function (error) {
+YouNowPlayer.prototype.failed = function (error, title) {
     this.disconnected();
-    redo = confirm(error);
-    if(redo) {
-        this.connect(streamerID, 0);
-    }
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-bottom-full-width",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "2500",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
+    toastr["error"](title, error);
 };
 YouNowPlayer.prototype.tick = function () {
     if (this.isConnected) {
