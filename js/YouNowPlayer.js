@@ -161,7 +161,7 @@ YouNowPlayer.prototype.failed = function (error, title) {
       "onclick": null,
       "showDuration": "300",
       "hideDuration": "1000",
-      "timeOut": "2500",
+      "timeOut": "5500",
       "extendedTimeOut": "1000",
       "showEasing": "swing",
       "hideEasing": "linear",
