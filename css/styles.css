@@ -1,0 +1,241 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: Segoe UI, Verdana, Helvecita, sans-serif;
+    background: #000;
+}
+div {
+    font-family: Segoe UI, Verdana, Helvecita, sans-serif;
+}
+#switcher {
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 12px;
+    height: 38px;
+    width:100%;
+}
+.input {
+    float: left;
+    color: #222;
+}
+input {
+    margin-left: 5px;
+    border-top: 1px solid #555;
+    border-left: 1px solid #444;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #444;
+
+    color: #fff;
+    padding: 5px;
+    height: 25px;
+    border-radius: 6px;
+    background: #2d2d2d;
+    background: -moz-linear-gradient(top, #2d2d2d 5%, #565656 98%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#2d2d2d), color-stop(98%,#565656));
+    background: -webkit-linear-gradient(top, #2d2d2d 5%,#565656 98%);
+    background: -o-linear-gradient(top, #2d2d2d 5%,#565656 98%);
+    background: -ms-linear-gradient(top, #2d2d2d 5%,#565656 98%);
+    background: linear-gradient(to bottom, #2d2d2d 5%,#565656 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#565656',GradientType=0 );
+}
+input[type=button] {
+    line-height: 5px;
+    background: #565656;
+    background: -moz-linear-gradient(top, #565656 2%, #2d2d2d 95%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#565656), color-stop(95%,#2d2d2d));
+    background: -webkit-linear-gradient(top, #565656 2%,#2d2d2d 95%);
+    background: -o-linear-gradient(top, #565656 2%,#2d2d2d 95%);
+    background: -ms-linear-gradient(top, #565656 2%,#2d2d2d 95%);
+    background: linear-gradient(to bottom, #565656 2%,#2d2d2d 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#2d2d2d',GradientType=0 );
+}
+input#streamerID {
+    border-right: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+input#connect {
+    border-left: 1px #222 !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    margin-left: 0px !important;
+}
+#outer {
+    height: calc(100% - 38px);
+}
+#switcher .info, #switcher .last {
+    height: 27px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    float: left;
+    border-left: 1px solid #252525;
+    border-right: 1px solid #252525;
+    font-size: 10px;
+    line-height: 11px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+#switcher #connectionInfo {
+    font-size: 12px;
+    padding-top: 13px;
+    padding-bottom: 0px;
+    height: 25px;
+    font-weight: bold;
+}
+#switcher #connectionInfo img {
+    display: inline-block;
+    margin-top: -2px;
+}
+}
+#switcher .last {
+    border-right: 0px !important;
+    line-height: 11px;
+}
+
+#switcher .right
+{
+    float: right;
+    margin-right: 10px;
+}
+#switcher .right a {
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    padding: 11px 8px;
+}
+#switcher .right a:hover {
+    color: #999;
+    background: #333;
+}
+.info img, .last img {
+    margin-right: 3px;
+}
+#connectionInfo img {
+    float: left;
+}
+#chat {
+    background: #000;
+    width: 350px;
+    height: 100%;
+    float: right;
+    box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.1005);
+}
+#chat #top {
+    height: 20px;
+    width: 100%;
+    color: #eee;
+    background: #444;
+    padding: 3px;
+}
+#messages {
+    padding: 12px !important;
+}
+#labelStreamer {
+    font-size: 13px;
+}
+#stream {
+    float: left;
+    width: calc(100% - 350px);
+    height: 100%;
+}
+#streamView
+{
+    float: left;
+    height: calc(100% - 50px);
+    width: 100%;
+}
+#streamBar {
+    float:left;
+    clear:both;
+    width: 100%;
+    height: 49px;
+    background: #0e0e0e;
+}
+#streamBar .left
+{
+    float: left;
+    margin-left: 10px;
+}
+#streamBar .right
+{
+    float: right;
+    margin-right: 10px;
+}
+
+#switcher .center{
+    float:left;
+    width: 71px;
+    margin-top: 6px;
+}
+
+#switcher .center2{
+    float:left;
+    width: 80px;
+    margin-top: 6px;
+    margin-left: 20px;
+    text-align-all: center;
+}
+
+#switcher .center3{
+    float:left;
+    width: 20px;
+    margin-top: 3px;
+    margin-left: 20px;
+    text-align-all: center;
+}
+
+#switcher .text{
+    float: left;
+    width: 200px;
+    margin-top: 11px;
+    margin-left: 7px;
+    text-align-all: center;
+}
+
+#streamBar .item {
+    float: left;
+    font-weight: bold;
+    margin: 10px;
+    color: #aaa;
+}
+#streamBar img {
+    float: left;
+    margin-right: 5px;
+}
+#chat ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    height: calc(100% - 10px);
+    overflow-y: scroll;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+#chat ul li a {
+    color: #eee;
+    text-decoration: none;
+}
+#chat ul li {
+    font-size: 11px;
+    color: #999;
+    float: left;
+    clear: both;
+    margin-left: 5px;
+    margin-bottom:5px;
+    padding-left: 0px;
+}
+#chat ul li span {
+    display: block;
+    float: left;
+    clear: none;
+    width: calc(100% - 60px);
+}
+#chat ul li img {
+    margin-right: 5px;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
