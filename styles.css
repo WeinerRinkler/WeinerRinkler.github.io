@@ -10,14 +10,9 @@ div {
     font-family: Segoe UI, Verdana, Helvecita, sans-serif;
 }
 #switcher {
-    background: #aebcbf;
-    background: -moz-linear-gradient(top, #aebcbf 0%, #6e7774 96%, #0a0809 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aebcbf), color-stop(96%,#6e7774), color-stop(100%,#0a0809));
-    background: -webkit-linear-gradient(top, #aebcbf 0%,#6e7774 96%,#0a0809 100%);
-    background: -o-linear-gradient(top, #aebcbf 0%,#6e7774 96%,#0a0809 100%);
-    background: -ms-linear-gradient(top, #aebcbf 0%,#6e7774 96%,#0a0809 100%);
-    background: linear-gradient(to bottom, #aebcbf 0%,#6e7774 96%,#0a0809 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aebcbf', endColorstr='#0a0809',GradientType=0 );
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 12px;
     height: 38px;
     width:100%;
 }
@@ -76,8 +71,8 @@ input#connect {
     padding-bottom: 5px;
     overflow: hidden;
     float: left;
-    border-left: 1px solid #666;
-    border-right: 1px solid #888;
+    border-left: 1px solid #252525;
+    border-right: 1px solid #252525;
     font-size: 10px;
     line-height: 11px;
     padding-left: 8px;
@@ -85,10 +80,15 @@ input#connect {
 }
 #switcher #connectionInfo {
     font-size: 12px;
-    padding-top: 11px;
+    padding-top: 13px;
     padding-bottom: 0px;
     height: 25px;
     font-weight: bold;
+}
+#switcher #connectionInfo img {
+    display: inline-block;
+    margin-top: -2px;
+}
 }
 #switcher .last {
     border-right: 0px !important;
@@ -98,10 +98,17 @@ input#connect {
 #switcher .right
 {
     float: right;
-    margin-top: 5px;
-    margin-right: 50px;
-    font-size: 18px;
-    font-weight: bold;
+    margin-right: 10px;
+}
+#switcher .right a {
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    padding: 11px 8px;
+}
+#switcher .right a:hover {
+    color: #999;
+    background: #333;
 }
 .info img, .last img {
     margin-right: 3px;
@@ -110,10 +117,11 @@ input#connect {
     float: left;
 }
 #chat {
-    background: #333;
+    background: #000;
     width: 350px;
     height: 100%;
     float: right;
+    box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.1005);
 }
 #chat #top {
     height: 20px;
@@ -121,6 +129,9 @@ input#connect {
     color: #eee;
     background: #444;
     padding: 3px;
+}
+#messages {
+    padding: 12px !important;
 }
 #labelStreamer {
     font-size: 13px;
@@ -141,8 +152,7 @@ input#connect {
     clear:both;
     width: 100%;
     height: 49px;
-    background: #666;
-    border-top: 1px solid #999;
+    background: #0e0e0e;
 }
 #streamBar .left
 {
@@ -180,7 +190,7 @@ input#connect {
 #switcher .text{
     float: left;
     width: 200px;
-    margin-top: 7px;
+    margin-top: 11px;
     margin-left: 7px;
     text-align-all: center;
 }

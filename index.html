@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script>
-        var streamerID = "DrachenLord_1510";
+        var streamerID = "Drache_Offiziell";
     </script>
 
     <link rel="stylesheet" href="styles.css" type="text/css"/>
@@ -21,18 +21,17 @@
 </script>
 <div id="switcher">
     <div class="info">
-        <div class="input"><span id="labelStreamer"></span> <input type="text" id="streamerID"/></div>
+        <div class="input"><input type="text" id="streamerID"/></div>
         <div class="input"><input type="button" id="connect"/></div>
     </div>
     <div class="info" id="connectionInfo"></div>
     <div class="last" id="streamerInfo"></div>
     <div class="center"><input type="button" value="Hide Chat" onclick="toogle_chat()"/></div>
-    <div class="center2"><input type="button" value="Streaminfo" onclick="streaminfo()"/></div>
     <div class="center3"><input id="reconnectCheckbox" type="checkbox" value="Autoreconnect" onchange="switchModus()" checked/></div>
     <div class="text"> Autoconnect/Autoreconnect</div>
     <div class="right">
         <a target="_blank" href="https://kiwiirc.com/client/irc.freenode.net/drachenlord">Haider-Chat</a>
-        &nbsp;
+        <a target="_blank" href="https://discord.gg/0Zu9jGs6CTJH5VEt">Haider-Voicechat</a>
         <a target="_blank" href="https://8ch.net/drachenlord/">DrachenChan</a>
     </div>
 </div>
@@ -72,7 +71,7 @@
             dataType: "jsonp",
             success: function (json, b, c) {
                 if (json["errorCode"] > 0 && mode == 0) {
-                    self.failed("(" + json["errorCode"] + ") " + streamerID + " ist etzala gerad uff Arbeit und ned am screamen.");
+                    self.failed("(" + json["errorCode"] + ") " + streamerID + " ist etzala gerad uff Arbeit und ned am screamen. Neu versuchen?");
                     streamerOnline = false;
                 } else if (json["errorCode"] > 0 && mode == 1) {
                     console.log("Streamer not online");
@@ -205,7 +204,10 @@
     }
     YouNowPlayer.prototype.failed = function (error) {
         this.disconnected();
-        alert(error);
+        redo = confirm(error);
+        if(redo) {
+            this.connect(streamerID, 0);
+        }
     };
     YouNowPlayer.prototype.tick = function () {
         if (this.isConnected) {
