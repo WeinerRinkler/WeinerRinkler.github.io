@@ -10,7 +10,7 @@ var YouNowPlayer = function () {
 };
 YouNowPlayer.prototype.connect = function (streamerID, mode) {
     this.disconnect();
-    $('#connectionInfo').html('<img src="' + this.config["icons"]["disconnected"] + '" />' + this.language["connecting"]);
+    $('#connectionInfo').html('<i class="fa fa-link"></i> ' + this.language["connecting"]);
     var self = this;
     $.ajax({
         url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
@@ -45,14 +45,14 @@ YouNowPlayer.prototype.disconnected = function () {
     $('#messages').html("");
     $('#streamView').html("");
     $('#streamBar').html("");
-    $('#connectionInfo').html('<img src="' + this.config["icons"]["disconnected"] + '" />' + this.language["disconnected"]);
+    $('#connectionInfo').html('<i class="fa fa-chain-broken"></i> ' + this.language["disconnected"]);
     $('#streamerInfo').html("");
     $('#top').html("");
     this.isConnected = false;
 };
 YouNowPlayer.prototype.streamerData = {};
 YouNowPlayer.prototype.connected = function (streamerData) {
-    $('#connectionInfo').html('<img src="' + this.config["icons"]["connected"] + '" />' + this.language["connected"]);
+    $('#connectionInfo').html('<i class="fa fa-link"></i> ' + this.language["connected"]);
     this.streamerData = streamerData;
     console.log(this.streamerData);
 

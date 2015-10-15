@@ -5,6 +5,7 @@ html, body {
     padding: 0px;
     font-family: Segoe UI, Verdana, Helvecita, sans-serif;
     background: #000;
+    overflow: hidden;
 }
 div {
     font-family: Segoe UI, Verdana, Helvecita, sans-serif;
@@ -40,7 +41,8 @@ input {
     background: linear-gradient(to bottom, #2d2d2d 5%,#565656 98%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#565656',GradientType=0 );
 }
-input[type=button] {
+input[type=button],
+button {
     line-height: 5px;
     background: #565656;
     background: -moz-linear-gradient(top, #565656 2%, #2d2d2d 95%);
@@ -50,6 +52,8 @@ input[type=button] {
     background: -ms-linear-gradient(top, #565656 2%,#2d2d2d 95%);
     background: linear-gradient(to bottom, #565656 2%,#2d2d2d 95%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#2d2d2d',GradientType=0 );
+    border: 0;
+    color: #fff;
 }
 input#streamerID {
     border-right: 0px !important;
@@ -167,8 +171,13 @@ input#connect {
 
 #switcher .center{
     float:left;
-    width: 71px;
+    width: auto;
     margin-top: 6px;
+}
+
+#switcher button {
+    padding: 6px;
+    margin-top: 2px;
 }
 
 #switcher .center2{
