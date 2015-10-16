@@ -115,7 +115,8 @@ YouNowPlayer.prototype.connected = function (streamerData) {
 };
 YouNowPlayer.prototype.addChatMessage = function (message) {
     var wasBottom = false;
-    if ($("#messages").scrollTop() > $("#messages")[0].scrollHeight - $("#messages").height() - 20)
+    console.log($('#messages').scrollTop(), $('#messages')[0].scrollHeight - $('#messages').height() - 25);
+    if ($("#messages").scrollTop() > $("#messages")[0].scrollHeight - $("#messages").height() - 25)
         wasBottom = true;
     if ($('#messages').children().length > this.config.maxMessages - 1)
         $('#messages').children()[0].remove();
@@ -123,6 +124,7 @@ YouNowPlayer.prototype.addChatMessage = function (message) {
     if (wasBottom) {
         $("#messages").animate({scrollTop: $("#messages")[0].scrollHeight}, 200)
     }
+    console.log(wasBottom);
 };
 YouNowPlayer.prototype.updateInfo = function () {
     var socialMedia = "";

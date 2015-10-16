@@ -134,6 +134,7 @@ input#connect {
     padding: 3px;
 }
 #messages {
+    height: 90% !important;
     padding: 12px !important;
 }
 #labelStreamer {
