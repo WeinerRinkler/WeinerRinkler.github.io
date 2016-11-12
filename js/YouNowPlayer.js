@@ -13,7 +13,7 @@ YouNowPlayer.prototype.connect = function (streamerID, mode) {
     $('#connectionInfo').html('<i class="fa fa-link"></i> ' + this.language["connecting"]);
     var self = this;
     $.ajax({
-        url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
+        url: 'https://api.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
         jsonp: "callback",
         dataType: "jsonp",
         success: function (json, b, c) {
