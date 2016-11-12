@@ -49,7 +49,7 @@ function getStreamerStatus() {
     console.log("StreamerID: "+streamerID);
     console.log(" ");
     $.ajax({
-        url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
+        url: 'https://api.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
         jsonp: "callback",
         dataType: "jsonp",
         success: function (json, b, c) {
@@ -92,7 +92,7 @@ function streaminfo () {
     var self = this;
     streamerID = $('#streamerID').val();
     $.ajax({
-        url: 'https://www.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
+        url: 'https://api.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
         jsonp: "callback",
         dataType: "jsonp",
         success: function (json, b, c) {
